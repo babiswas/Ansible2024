@@ -1,3 +1,4 @@
 
 ansible-playbook debug-demo.yml -vv
+ansible all -m shell -a "ls -ltr"
 #run ansible verbose
