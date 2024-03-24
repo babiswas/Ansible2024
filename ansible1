@@ -57,6 +57,8 @@ Stats module is used to check if a file exists in the machine.
 
 Creating files and folders depending on if  the files and folders exists:
 
+website refer:https://phoenixnap.com/kb/ansible-check-if-file-exists
+
 
 
 
