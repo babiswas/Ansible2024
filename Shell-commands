@@ -1,0 +1,16 @@
+---
+- name: Executing shell command
+  hosts: testservers
+  become: true
+
+  tasks:
+  - name: Executing a shell command
+    tags: listfiles
+    shell:
+       "ls -ltr"
+    register: op
+
+  - name: Get the output of shell command
+    debug:
+       msg: "{{datecmd.stdout}}"
+
