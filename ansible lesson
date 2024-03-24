@@ -1,0 +1,88 @@
+
+Verify if the file exists in the remote machine and create file:
+=================================================================
+
+---
+- name: Stats module demonstration
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Check if the file exists
+    stat:
+      path: "/home/zuser/hello.txt"
+    register: file_data
+
+  - name: Create a file if it doesnot exists
+    file:
+      path: "/home/zuser/hello.txt"
+      state: touch
+    when: not file_data.stat.exists
+
+
+Stats module is used to check if a file exists in the machine.
+===============================================================
+
+---
+
+- name: File existance check
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Check if a file exists
+    stat:
+      path: "/home/zuser/test1.txt"
+    register: file_data
+
+  - name:
+    stat:
+      path: "/home/zuser"
+    register: dir_data
+
+  - name: Report if a file exists
+    debug:
+      msg: "The file exists"
+    when: file_data.stat.exists and file_data.stat.isreg
+
+  - name: Report a missing value
+    debug:
+      msg: "File doesnot exists"
+    when: not file_data.stat.exists
+
+  - name: Create a file if doesnot exists
+    file:
+      path: "/home/zuser/hello.txt"
+      state: touch
+    when: not file_data.stat.exists and dir_data.stat.isdir
+
+
+
+Executing Shell commands in ansible:
+====================================
+
+---
+- name: Executing shell command
+  hosts: testservers
+  become: true
+
+  tasks:
+  - name: Executing a shell command
+    tags: listfiles
+    shell:
+       "ls -ltr"
+    register: op
+
+  - name: Get the output of shell command
+    debug:
+       msg: "{{datecmd.stdout}}"
+
+
+
+
+
+
+
+
+
+
