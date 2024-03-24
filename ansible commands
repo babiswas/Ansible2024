@@ -1,1 +1,3 @@
 
+ansible-playbook debug-demo.yml -vv
+#run ansible verbose
