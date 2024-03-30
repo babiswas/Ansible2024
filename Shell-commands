@@ -14,3 +14,8 @@
     debug:
        msg: "{{datecmd.stdout}}"
 
+
+openssl genrsa -out $SERVER_KEY 4096 2>/dev/null
+openssl req -new -key $SERVER_KEY -out $SERVER_CSR --config $EXTFILE 2>/dev/null
+openssl x509 -req -days 3650 -in $SERVER_CSR -signkey $SERVER_KEY -out $SERVER_CRT 2>/dev/null
+
