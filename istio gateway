@@ -1,0 +1,81 @@
+Istio Service Mesh
+==================
+
+Challenges of microservice architecture:
+========================================
+1.Security
+2.communication configuration
+3.metric
+4.Trace
+
+
+
+
+Sidecar Proxy
+Buisness Logic
+
+-------------------
+|   Control Plane  |--->Network Layer
+
+|   Proxy Service  |
+-------------------
+     Service
+
+
+
+
+
+ Traffic Split
+ --------------
+ 30% on version1
+ 70% on version2------->Canary Deployment.
+
+
+
+ Istio Architecture:
+ -------------------
+
+ 1)Istio is configured using kubernetes YAML files.
+ 2)Custom resource definition(CRD) is used for third party tool deployment like Istio,Prometheous etc.
+
+
+ a)Traffic Routing
+ b)Which service can communicate.
+ c)Traffic split
+ d)Retry rules
+
+
+ Istio has central registry for all the microservices.
+
+ 1.Communication between microservice is one challange.
+ 2.Security(Ingress/Egress) rules.
+ 3.Retry logic.
+ 4.Metric
+
+ Service complexity decreases with istio by introducing a sidecar proxy.
+
+ Control plane will push the configuration to the envoy proxies.
+
+
+ Istio ingress gateway is an alternative to nginx ingress controller.
+
+ Gateway CRD used to configure istio gateway.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
