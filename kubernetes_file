@@ -1,0 +1,27 @@
+Container:
+==========
+Running instance of docker image is container.
+
+POD:
+====
+Running instance of deployment manifest is pod.A pod can have more than once container.
+
+Deployment:
+===========
+A deployment is kubernetes component or manifest for launching a pod.
+
+docker run -d image_name.
+
+
+Deployment offer
+================
+1.auto healing
+2.auto scaling
+
+
+               Deployment
+                  |
+                  |
+               Replicaset------------->Controller.
+                  |
+              p1  p2  p3
