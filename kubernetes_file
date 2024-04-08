@@ -25,3 +25,10 @@ Deployment offer
                Replicaset------------->Controller.
                   |
               p1  p2  p3
+
+Deployment is a kubernetes resource.
+Running instance of deployment is pod
+Container is running instance of docker image inside pod.
+
+
+
